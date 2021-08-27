@@ -88,6 +88,12 @@ print(result[1]) #文件扩展名
 result = os.path.getsize(path)
 print(result) #返回字节个数
 
+result = os.path.exists('D:\测试(test)文件夹\PY.png')
+print(result)
+
+result = os.path.dirname('D:\测试(test)文件夹\PY.png')
+print(result)
+
 '''
 dirname()
 join()
@@ -117,7 +123,7 @@ if not os.path.exists('D:\python\PyCharm\Study-project\Python-project\code'):
 else:
     os.rmdir('D:\python\PyCharm\Study-project\Python-project\code')
 
-#mkdir创建文件夹操作  文件夹不存在时报错，没有返回值
+#mkdir创建文件夹操作  文件夹存在时报错，没有返回值
 # f = os.mkdir('D:\python\PyCharm\Study-project\Python-project\code')
 # print(f)
 
@@ -134,7 +140,7 @@ else:
 # else:
 #     os.rmdir(path)                     #删除文件夹
 
-path = os.getcwd()   #返回当前文件的路径
+path = os.getcwd()   #返回当前文件夹的路径
 print(path)
 f = os.chdir('D:\python')   #切换目录
 print(f)
