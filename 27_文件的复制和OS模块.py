@@ -157,17 +157,21 @@ os.chdir()
 '''
 src_path = r'D:\python\PyCharm\test'
 target_path = r'D:\测试(test)文件夹'
+
 def copy(src,target):
     if os.path.isdir(src) and os.path.isdir(target):
         filelist = os.listdir(src)
     for file in filelist:
         filepath = os.path.join(src,file)
-        targetfile = os.path.join(target,file)
-        with open(filepath,'rb') as rstream:
-            container = rstream.read()
-            with open(targetfile,'wb') as wstream:
-                wstream.write(container)
-    else:
-        print('复制完成！')
+        if os.path.isdir(filepath):  #如果要复制的是一个文件夹而不是文件，则递归调用该函数
+            targetfile = os.path.join(target,file)
+            os.mkdir(targetfile)
+            copy(filepath,targetfile)
+        else:
+            targetfile = os.path.join(target,file)
+            with open(filepath,'rb') as rstream:
+                container = rstream.read()
+                with open(targetfile,'wb') as wstream:
+                    wstream.write(container)
 
-copy(src_path,target_path)
+copy(src_path,target_path)  #最终复制给目标文件的只有文件，没有文件夹
