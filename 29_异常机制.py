@@ -92,7 +92,7 @@ def func():
         print(stream)
         container = stream.read()
         print(container)
-        return 1    #遇到finally时不会立刻返回
+        return 1  # 遇到finally时不会立刻返回
     except Exception as err:
         print(err)
         return 2
@@ -100,22 +100,25 @@ def func():
         print('-----finally-----')
         if stream:  # 如果stream占用内存
             stream.close()
-        return 3  #最终还是要返回finally的值
+        return 3  # 最终还是要返回finally的值
 
 
-x = func()  #最终返回3，由于finally优先级高于return
+x = func()  # 最终返回3，由于finally优先级高于return
 print(x)
 
 '''
 抛出异常（自定义异常）：raise
 
 '''
-#注册函数 用户名必须大于6位
+
+
+# 注册函数 用户名必须大于6位
 def register():
     username = input('请输入用户名：')
-    if len(username)<6:
+    if len(username) < 6:
         raise Exception('用户长度必须6位以上')
     else:
-        print('输入的用户名是：',username)
-register()
+        print('输入的用户名是：', username)
 
+
+register()

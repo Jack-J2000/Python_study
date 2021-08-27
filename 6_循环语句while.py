@@ -84,7 +84,7 @@ while True:  # 当不知道要循环多少次时，可使用 while True .... bre
 while...else 结构
 该结构在已知循环次数时可使用
 '''
-n=1
+n = 1
 while n <= 5:
     print('JSY')
     if n == 3:

@@ -18,16 +18,16 @@ while n <= 5:
     n += 1
 
 n = 1
-while n <= 5:   #控制行数
+while n <= 5:  # 控制行数
     m = 5
-    while m >= n:   #控制每行 * 的数量
+    while m >= n:  # 控制每行 * 的数量
         print('*', end='')
         m -= 1
     n += 1
-    print()   #相当于换行
+    print()  # 相当于换行
 
-#用for循环打印图形
+# 用for循环打印图形
 for i in range(5):
-    for j in range(i+1):   #此处嵌套时需注意 i 的值在下一层会变小。由于[ start , step )
-        print('*',end='')
+    for j in range(i + 1):  # 此处嵌套时需注意 i 的值在下一层会变小。由于[ start , step )
+        print('*', end='')
     print()

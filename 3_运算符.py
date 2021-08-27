@@ -77,4 +77,4 @@ a = 1
 b = 2
 x = 20
 print(b > a + x < a + b)  # 2>21<3
-print(b > a + (x < a + b))  #  2 > 1+False      (False代表了0；括号也是优先级最高)
+print(b > a + (x < a + b))  # 2 > 1+False      (False代表了0；括号也是优先级最高)

@@ -84,12 +84,12 @@ money = 12.34
 print(name + '已经' + str(age) + '岁了！')
 print('%s已经%d岁了！' % (name, age))  # 字符串的格式化输出，类似与C语言的输出
 
-print('%s已经%d岁了！,但是身上只有%f块钱。'%(name,age,money))  #自动保留六位小数
-print('%s已经%d岁了！,但是身上只有%.2f块钱。'%(name,age,money)) #  将%f变为%.2f  可手动保留2位小数
+print('%s已经%d岁了！,但是身上只有%f块钱。' % (name, age, money))  # 自动保留六位小数
+print('%s已经%d岁了！,但是身上只有%.2f块钱。' % (name, age, money))  # 将%f变为%.2f  可手动保留2位小数
 
-print('%s已经%s岁了！,但是身上只有%s块钱。'%(name,age,money))  #  %s的功能较为强大，使用在整型或，浮点型上将其自动转换为字符串型
+print('%s已经%s岁了！,但是身上只有%s块钱。' % (name, age, money))  # %s的功能较为强大，使用在整型或，浮点型上将其自动转换为字符串型
 
-#内置方法
+# 内置方法
 '''
 print()
 input()
@@ -119,13 +119,9 @@ isinstance(变量，类型)  判断该变量是否是该类型
 *  支持 字符串，列表，元组
 - & | 只能在 集合上使用
 '''
-list1 = [1,2,3,4,8,9]
+list1 = [1, 2, 3, 4, 8, 9]
 result = max(list1)
 print(result)
 
 result = sum(list1)
 print(result)
-
-
-
-
