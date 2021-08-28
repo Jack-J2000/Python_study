@@ -3,8 +3,12 @@
 object--->BaseException---->Eception---->以树状型分支的各种Error
 异常：程序运行的时候报出来的，XXXError，也是类的形式
           可以用级别高的异常来作出包括一系列异常的反应动作
-          当出现异常时，程序自动自上向下的寻找适合的exception，进而执行里面的动作
-          如果是多个except，异常类型的顺序应该注意，最大的Except要放在最下面
+          当出现异常时，程序自动自上向下的寻找适合的except，进而执行里面的动作
+          如果是多个except，异常类型的顺序应该注意，最大的Exception要放在最下面
+异常情况：
+list = []
+list.pop()
+
 格式：
 try:
       可能出现异常的代码
@@ -46,8 +50,6 @@ except:
 finally:
     无论是否有异常都会被执行的代码（比如无论是否出现异常都要关闭管道）
 '''
-
-
 # def func():
 #     try:
 #         n1 = int(input('输入第一个数字：'))
@@ -67,7 +69,6 @@ finally:
 #             print('商是：',num)
 #         else:
 #             print('请输入正确的运算符！')
-#
 #         with open(r'D:\测试(test)文件夹\Test1\result.txt','w') as wstream:
 #             wstream.write('结果是:{}'.format(num))
 #         with open(r'D:\测试(test)文件夹\Test1\result.txt') as rstream:
@@ -115,14 +116,14 @@ print(x)
 # 注册函数 用户名必须大于6位
 def register():
     username = input('请输入用户名：')
-    if len(username) < 6:
-        raise Exception('用户长度必须6位以上')  #自定义异常类型和格式
+    if len(username) <= 6:
+            raise  ValueError('用户长度必须6位以上')  #自定义异常类型和格式
     else:
         print('输入的用户名是：', username)
 
 try:
     register()
-except Exception as err:  #可用来接住   上面抛出的   格式相同的异常
+except Exception as err:  #可用来接住   上面抛出的异常
     print(err)   #err是上面的Exception里的自定义异常
     print('注册失败！')
 else:
