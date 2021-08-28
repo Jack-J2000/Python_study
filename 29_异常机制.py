@@ -108,7 +108,7 @@ print(x)
 
 '''
 抛出异常（自定义异常）：raise
-
+用来处理特殊情况下人为设定的异常
 '''
 
 
@@ -116,9 +116,14 @@ print(x)
 def register():
     username = input('请输入用户名：')
     if len(username) < 6:
-        raise Exception('用户长度必须6位以上')
+        raise Exception('用户长度必须6位以上')  #自定义异常类型和格式
     else:
         print('输入的用户名是：', username)
 
-
-register()
+try:
+    register()
+except Exception as err:  #可用来接住   上面抛出的   格式相同的异常
+    print(err)   #err是上面的Exception里的自定义异常
+    print('注册失败！')
+else:
+    print('注册成功！')
