@@ -23,6 +23,8 @@ float-->str str(a)
 
 int-->float  float(a)  加小数点
 float-->int  int(a)     小数点后数字被抹除
+
+#对于float类型：round()可用于保留小数
 '''
 a = 5
 print(bool(a))
