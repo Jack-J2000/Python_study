@@ -35,6 +35,7 @@ print(jsy.brand)
 
 '''
 属性:
+类属性，对象属性
 '''
 class Student:
     #类属性
