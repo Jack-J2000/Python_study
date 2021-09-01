@@ -14,9 +14,11 @@
 奇数立方和，偶数平方和
 '''
 # while True:
-#     a, b = list(map(int, input().split()))
+#     a, b = list(map(int, input().split()))   #注意：输入数字的大小可能不同
 #     result1 = 0
 #     result2 = 0
+#     if a>b:
+#         a,b = b,a
 #     while a <= b:
 #         if a % 2 == 0:
 #             sum1 = a ** 2
@@ -100,26 +102,13 @@ XP有一群同学，序号是（1~K）,这些调皮的同学会去按电灯的�
 现在XP有K位同学，每位同学都去操作一次，问最后有多少盏灯是亮着的？
 '''
 while True:
-        light = []
-        num = 0
-        N, K = list(map(int, input().split()))  # N是电灯数，K是同学数
-        for i in range(N):
-            light.append(0)
-        length = len(light)
-
-        for i in range(1, K + 1):
-            j = 1
-            while j <= K:
-                if i * j <= length:
-                    light[i * j - 1] += 1
-                    j += 1
-                else:
-                    break
-
-        for i in light:
-            if i % 2 != 0:
-                num += 1
-        print(num)
-
-
-
+    N, K = map(int, input().split())
+    light_num = 0
+    for i in range(1, N + 1):
+        operation = 0
+        for j in range(1, K + 1):
+            if i % j == 0:
+                operation += 1
+        if operation % 2 != 0:
+            light_num += 1
+    print(light_num)
