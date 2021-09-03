@@ -30,24 +30,22 @@ p.call()
 print(p.name)
 
 '''
-
 ##使用_init_()来统一对象属性，更方便快捷安全
-当_init_() 含参数时
-对象方法：
-
+当_init_() 含参数时，在创建对象时可向其传参，由此创建不同的对象
+普通方法：
 '''
 class Person:
     # name = '法外狂徒张三'
-    def __init__(self,name,age):  #构造器的精髓所在
+    def __init__(self,name,age):  #构造器的精髓所在；定义好初始化函数后，所有对象需要按照其进行创建
         self.name = name
         self.age = age
-    def eat(self):
-        print('{}正在吃红烧肉!'.format(self.name))
+    def eat(self,food): #普通函数带参
+        print('{}正在吃{}!'.format(self.name,food))
         print('年龄：{}'.format(self.age))
 
 p = Person('赵四',20)
 # p.name = '赵四'
-p.eat()
+p.eat('正新鸡排')
 
 p1 = Person('张三',21)
-p1.eat()
+p1.eat('烤全鱼')
