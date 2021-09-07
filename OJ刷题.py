@@ -135,32 +135,22 @@ X星人在一艘海底沉船上发现了很多很多很多金币，可爱的X星
 假如小表弟每个单词最多写错一个字母（当然有时候也是会全部写对的，且字母个数是完全正确的）。
 你能否编写一个程序，对小表弟写的单词进行自动纠错。
 '''
-n = input()
-animal = ['cat', 'pig', 'horse']
-flag1 = 0
-flag2 = 0
-flag3 = 0
-change1 = ['c','a','t']
-change2 = ['p','i','g']
-change3 = ['h','o','r','s','e']
-if len(n)==3:
-    for i in n:
-        for j in range(len(change1)):
-            if i == change1[j]:
-                flag1 += 1
-                change1.remove(change1[j])
+import re
 
-        for k in range(len(change2)):
-            if i == change2[k]:
-                flag2 += 1
-                change2.remove(change2[k])
-    if flag1 >= 2:
-        print(animal[0])
-    if flag2 >= 2:
-        print(animal[1])
-# elif len(n)==5:
-#     for i in n:
-#         if i in ''
+string = input()
+horse = 'hors[a-z]|hor[a-z]e|ho[a-z]se|h[a-z]rse|[a-z]orse'
+cat = 'ca[a-z]|[a-z]at|c[a-z]t'
+pig = 'pi[a-z]|[a-z]ig|p[a-z]g'
+match1 = re.match(cat, string)
+match2 = re.match(pig, string)
+match3 = re.match(horse,string)
+
+if match1:
+    print('cat')
+if match2:
+    print('pig')
+if match3:
+    print('horse')
 
 '''
 小明最近在学习图像处理算法。在其中某个算法中使用一个6位十六进制（不区分大小写）的字符串来表示一种颜色。

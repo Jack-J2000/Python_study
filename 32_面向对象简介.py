@@ -55,7 +55,7 @@ print(JSY.gender)
 
 #修改类中的属性
 Student.name = 'JackLove'
-print(JSY.name)  #JSY对象里没有定义name，所以使用类中的属性拿么
+print(JSY.name)  #JSY对象里没有定义name，所以使用类中的属性name
 
 '''
 类中的方法：
