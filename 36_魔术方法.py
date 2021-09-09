@@ -25,6 +25,7 @@ class Person:
 
     def __new__(cls,*args,**kwargs): #创建并返回这个类的实例，必须要有返回值
         print('魔术方法：_new_',args)
+        #python2和python3对super函数不同的写法：python3__new__()不用参数。
         # return super(Person, cls).__new__(cls)  #返回值给了_init_里的self
         space = object.__new__(cls)   #作用同上
         print(space)
@@ -33,12 +34,14 @@ class Person:
     def __call__(self, name):
         print('魔术方法：__call__')
         print('执行对象传入的参数是：',name)
+        return 'call'
 
 p = Person('Jack')  # 先触发_new_方法，实例化一个对象；再触发_init_方法
 print(type(p))
 print(p)
 
-p('jsy')  #把对象当成函数调用
+result = p('jsy')  #把对象当成函数调用
+print(result)
 
 #析构 __del__
 # （多变量指向同一对象地址空间） 类似 del
@@ -74,7 +77,7 @@ p1.name = 'Tom'
 print(p1.name,p.name)  #修改其中一个的值，其他指向该地址的变量也随之而变
 
 print(p2)
-del p2  #在删除引用时会调用魔术方法__init__
+del p2
 print('删除p2后打印：',p1.name)
 
 #__str__

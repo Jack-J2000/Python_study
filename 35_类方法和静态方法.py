@@ -39,10 +39,12 @@ print(Dog)
 Dog.test()  #类方法不依赖对象，在对象出现之前也可调用
 dog = Dog('旺财')
 # dog.run()
+dog.test()
 
-dog.eat()
+# dog.eat()
 
-#类方法补充
+
+
 '''
 静态方法：(类似类方法)
 1.需要装饰器  @staticmethod

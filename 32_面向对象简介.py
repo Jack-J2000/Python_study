@@ -80,4 +80,5 @@ phone1.name = 'Jack'
 
 print(phone1)
 phone1.call()  #call方法中的self表示，谁调用call函数就会把自身作为参数传给call
+Phone.call(phone1)
 

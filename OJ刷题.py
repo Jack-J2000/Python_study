@@ -135,23 +135,54 @@ X星人在一艘海底沉船上发现了很多很多很多金币，可爱的X星
 假如小表弟每个单词最多写错一个字母（当然有时候也是会全部写对的，且字母个数是完全正确的）。
 你能否编写一个程序，对小表弟写的单词进行自动纠错。
 '''
-import re
+# n = input()
+# list1 = ['c', 'a', 't']
+# list2 = ['p', 'i', 'g']
+# list3 = ['h', 'o', 'r', 's', 'e']
+# list = []
+#
+# for i in n:
+#     list.append(i)
+#
+# if len(n) == 3:
+#     cat = 0
+#     pig = 0
+#     for i in range(3):
+#         if list[i] == list1[i]:
+#             cat += 1
+#         if list[i] == list2[i]:
+#             pig += 1
+#
+#     if cat >= 2:
+#         print('cat')
+#     if pig >= 2:
+#         print('pig')
+#
+# elif len(n) == 5:
+#     horse = 0
+#     for i in range(5):
+#         if list[i] == list3[i]:
+#             horse += 1
+#     if horse >= 4:
+#         print('horse')
 
-string = input()
-horse = 'hors[a-z]|hor[a-z]e|ho[a-z]se|h[a-z]rse|[a-z]orse'
-cat = 'ca[a-z]|[a-z]at|c[a-z]t'
-pig = 'pi[a-z]|[a-z]ig|p[a-z]g'
-match1 = re.match(cat, string)
-match2 = re.match(pig, string)
-match3 = re.match(horse,string)
-
-if match1:
-    print('cat')
-if match2:
-    print('pig')
-if match3:
-    print('horse')
-
+# 正则表达式
+# import re
+#
+# string = input()
+# horse = 'hors[a-z]|hor[a-z]e|ho[a-z]se|h[a-z]rse|[a-z]orse'
+# cat = 'ca[a-z]|[a-z]at|c[a-z]t'
+# pig = 'pi[a-z]|[a-z]ig|p[a-z]g'
+# match1 = re.match(cat, string)
+# match2 = re.match(pig, string)
+# match3 = re.match(horse,string)
+#
+# if match1:
+#     print('cat')
+# if match2:
+#     print('pig')
+# if match3:
+#     print('horse')
 '''
 小明最近在学习图像处理算法。在其中某个算法中使用一个6位十六进制（不区分大小写）的字符串来表示一种颜色。
 在6位十六进制的颜色表示方法中，前两位十六进制表示红色(Red)，
@@ -269,3 +300,115 @@ n=1000 (53352)
 #     list = list1+list2+list3+list4+list5+list6
 #     # print(len(list))
 #     print(list[n-1])
+
+'''
+输入一个正整数（秒钟），请将其转换成为如下格式：
+时:分:秒。
+'''
+# n = int(input())
+# hour = 0
+# minute = 0
+# second = 0
+# while True:
+#     if n - 3600 > 0:
+#         n = n - 3600
+#         hour += 1
+#     elif n - 60 > 0:
+#         n = n - 60
+#         minute += 1
+#     else:
+#         second = n
+#         break
+# print('{}:{}:{}'.format(hour,minute,second))
+
+'''
+有这样一道智力题：“某商店规定：三个空汽水瓶可以换一瓶汽水。小张手上有十个空汽水瓶，她最多可以换多少瓶汽水喝？”答案是5瓶，
+方法如下：先用9个空瓶子换3瓶汽水，喝掉3瓶满的，喝完以后4个空瓶子，用3个再换一瓶，喝掉这瓶满的，这时候剩2个空瓶子。
+然后你让老板先借给你一瓶汽水，喝掉这瓶满的，喝完以后用3个空瓶子换一瓶满的还给老板。如果小张手上有n个空汽水瓶，最多可以换多少瓶汽水喝？
+'''
+# while True:
+#     n = int(input())
+#     if n == 0:
+#         break
+#     new_coco = 0
+#     while True:
+#         if n >= 3:
+#             new_coco += 1
+#             n -= 3
+#             n += 1
+#         elif n == 2:
+#             new_coco += 1
+#             n = 0
+#         if n==0 or n==1:
+#             break
+#     print(new_coco)
+
+'''
+定理：把一个至少两位的正整数的个位数字去掉，再从余下的数中减去个位数的5倍。
+当且仅当差是17的倍数时，原数也是17的倍数 。
+例如，34是17的倍数，因为3-20=-17是17的倍数；201不是17的倍数，因为20-5=15不是17的倍数。
+输入一个正整数n，你的任务是判断它是否是17的倍数。
+'''
+# while True:
+#     n = input()
+#     if n =='0':
+#         break
+#     num1 = n[:-1]
+#     num2 = n[-1]  #个位
+#     new_num1 = int(num1)
+#     new_num2 = int(num2)
+#     # print(new_num1)
+#     # print(new_num2)
+#     if (new_num1-5*new_num2)%17==0 and int(n)%17==0:
+#         print(1)
+#     else:
+#         print(0)
+'''
+我们首先提取出对话的最后一句话，把所有非字母的字符替换成空格，把所有字符 替换成小写，
+然后导出一个单词列表（由空格隔开），只要列表中的任何一个单词是 hehe，
+这 段对话就算作“止于呵呵”。
+本题只考虑由 n(n>1)个 he连接而成的单词，比如 hehehe或者 hehehehe。
+'''
+import sys
+list = []
+list_new = [] #定义一个空列表
+conversition = []
+for line in sys.stdin:
+#py.3中input（）只能输入一行  sys.stdin按下换行键然后ctrl+d程序结束
+    list_new = line.split('\n')
+    list.extend(list_new)#每一行组成的列表合并
+for i in range(len(list)):
+    if list[i]!='':
+        conversition.append(list[i])
+print(conversition)
+
+'''
+。A太太工作了 5天，B太太则工作了 4天，才将花园整理完毕。
+C 太太因为正身怀六甲无法加入她们的行列，便出了 90 元。
+请问这笔钱如何分给 A、B二位太太较为恰当？A应得多少元？
+90/(5+4)*5=50元？如果这么想你就上当了！正确答案是 60元。
+假定 A 太太工作了 x 天，B 太太工作了 y 天，C 太太出了 90 元，则 A太太应得多少元？
+输入保证二位太太均应得到非负整数元钱。
+'''
+# n = int(input())
+# while n:
+#     a, b, c = map(int, input().split())
+#     a = a*24
+#     b = b*24
+#     average = int((a + b) / 3)
+#     # print(average)
+#     coin_b = b - average
+#     coin_a = a - average
+#     if coin_b <= 0:
+#         coin_a = c
+#         print(coin_a)
+#     if coin_a <= 0:
+#         coin_b = c
+#         print(coin_b)
+#     if coin_a>0 and coin_b>0:
+#         if average!=0:
+#             coin_a = int((c/average)*coin_a)
+#             print(coin_a)
+#         if average==0:
+#             print(int(c/2))
+#     n -= 1
