@@ -132,7 +132,15 @@ has  a：如果A中有B，那么，B就是A的组成部分
 格式：
    class Student(Person):
         pass
-
+特点：
+  1.如果类中不定义__init__，调用父类 super class的__init__
+  2.如果类继承父类也需要定义自己的__init__，就需要在当前类的__init__调用一下父类的__init__，再初始化自己特有的属性
+  3.调用父类的方法(下文中)
+  4.如果父类有eat()，子类也定义一个eat()方法，按照就近原则：先找当前类，再去找父类
+    如果子类出现父类同名的方法，可称之为 override--重写(覆盖)。
+    此情况一般出现在：父类提供的方法不能满足子类的需求
+  5.子类中可调用父类的同名方法
+    使用super().方法名(参数)   #可调用父类的方法，再往下写新增的方法(内容)
 '''
 
 
@@ -163,6 +171,10 @@ class Employee(Person):
         self.work = work     #独有属性在本类的__init__里进行初始化
     def __str__(self):
         return '姓名：'+self.name+'年龄：'+str(self.age)+'职业：'+self.work
+    
+    def eat(self):
+        super(Employee, self).eat()  #在子类中调用父类的同名方法，再向下写新增的内容
+        print(self.name+'正在吃饭! ')
 
 
 class Doctor(Person):
@@ -192,8 +204,11 @@ print(s.name)
 
 e = Employee('Tom',29,'程序员')
 print(e)
-e.eat()
+e.eat()    #此时由于Employee本类中就有eat方法，无需去调用父类(Person)里的eat方法，故此为就近原则
 
 d = Doctor('华佗',88,'老中医')
 print(d)
 d.eat()
+
+
+
