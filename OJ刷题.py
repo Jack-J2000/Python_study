@@ -349,38 +349,56 @@ n=1000 (53352)
 例如，34是17的倍数，因为3-20=-17是17的倍数；201不是17的倍数，因为20-5=15不是17的倍数。
 输入一个正整数n，你的任务是判断它是否是17的倍数。
 '''
-# while True:
-#     n = input()
-#     if n =='0':
-#         break
-#     num1 = n[:-1]
-#     num2 = n[-1]  #个位
-#     new_num1 = int(num1)
-#     new_num2 = int(num2)
-#     # print(new_num1)
-#     # print(new_num2)
-#     if (new_num1-5*new_num2)%17==0 and int(n)%17==0:
-#         print(1)
-#     else:
-#         print(0)
+while True:
+    n = input()
+    if n =='0':
+        break
+    num1 = n[:-1]    #除个位外其他位数
+    num2 = n[-1]    #个位
+    new_num1 = int(num1)   #变整型
+    new_num2 = int(num2)
+    # print(new_num1)
+    # print(new_num2)
+    if (new_num1-5*new_num2)%17==0 and int(n)%17==0:
+        print(1)
+    else:
+        print(0)
 '''
 我们首先提取出对话的最后一句话，把所有非字母的字符替换成空格，把所有字符 替换成小写，
 然后导出一个单词列表（由空格隔开），只要列表中的任何一个单词是 hehe，
 这 段对话就算作“止于呵呵”。
 本题只考虑由 n(n>1)个 he连接而成的单词，比如 hehehe或者 hehehehe。
 '''
-import sys
-list = []
-list_new = [] #定义一个空列表
-conversition = []
-for line in sys.stdin:
-#py.3中input（）只能输入一行  sys.stdin按下换行键然后ctrl+d程序结束
-    list_new = line.split('\n')
-    list.extend(list_new)#每一行组成的列表合并
-for i in range(len(list)):
-    if list[i]!='':
-        conversition.append(list[i])
-print(conversition)
+import re
+name = []
+conversation = []
+while True:
+    dialogue = input()
+    for i in range(len(dialogue)):
+        if dialogue[i]==':':
+            a = dialogue[:i]
+            b = dialogue[i+1:]
+            name.append(a)
+            conversation.append(b)
+            break
+
+    new_b = b.strip()
+    new_b = new_b.split(' ') #存放输入各单词的列表
+    flag1 = 0 #是否满足呵呵
+
+    for i in new_b:
+        i = i.lower()
+        if len(i)%2==0 and int((len(i)/2))*'he'==i:
+            flag1 = 1
+            break
+    if flag1:
+        break
+
+
+
+
+
+
 
 '''
 。A太太工作了 5天，B太太则工作了 4天，才将花园整理完毕。
