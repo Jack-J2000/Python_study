@@ -12,3 +12,73 @@
 
 '''
 
+
+class Person:
+    def __init__(self, num, name, salary):
+        self.num = num
+        self.name = name
+        self.salary = salary
+
+    # def setName(self,name):
+    #     self.name = name
+    # def getName(self):
+    #     return self.name
+    # def getNum(self):
+    #     return self.num
+    def count_salary(self):
+        return self.salary
+
+    def __str__(self):
+        msg = '工号：{}，姓名：{}，工资：{}'.format(self.num, self.name, self.salary)
+        return msg
+
+
+class Worker(Person):
+
+    def __init__(self, num, name, salary, hours, hour_salary):
+        super(Worker, self).__init__(num, name, salary)
+        self.hours = hours
+        self.hour_salary = hour_salary
+
+    def count_salary(self):
+        money = self.hours * self.hour_salary
+        self.salary += money
+        return self.salary
+
+
+class Saleman(Person):
+    def __init__(self, num, name, salary, turnover, commission):
+        super(Saleman, self).__init__(num, name, salary)
+        self.turnover = turnover
+        self.commission = commission
+
+    def count_salary(self):
+        money = self.turnover * self.commission
+        self.salary += money
+        return self.salary
+
+
+class Manager(Person):
+    def __init__(self, num, name, salary,monthly_pay):
+        super(Manager, self).__init__(num, name, salary)
+        self.monthly_pay = monthly_pay
+    def count_salary(self):
+        money = self.monthly_pay
+        self.salary+= money
+        return self.salary
+
+
+class Salemanger(Person):
+    def __init__(self):
+        super(Salemanger, self).__init__(num, name, salary)
+
+#每个子类均重写了count_salary()方法
+worker = Worker('001','Tom',2000,160,100)
+s = worker.count_salary()
+print(s)   #160*100+2000=18000
+print(worker)  #调用的是Person里的__str__方法
+
+saleman = Saleman('002','lucy',5000,5000000,0.003)
+s = saleman.count_salary()
+print(s)
+print(saleman)
