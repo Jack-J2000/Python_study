@@ -3,7 +3,6 @@
 '''
 import random
 
-
 # 声明（Road）
 class Road:
     def __init__(self, name, len):
@@ -114,8 +113,9 @@ print(stu)
 
 book1 = Book('斗破苍穹', '天蚕土豆', 20)
 
-# stu.show_book()
+stu.show_book()
 stu.borrow_book(book1)
+stu.show_book()
 
 '''
 is  a（继承关系）：如果A是B，那么B就是A的基类(base class / 父类)
@@ -124,6 +124,7 @@ is  a（继承关系）：如果A是B，那么B就是A的基类(base class / 父
 has  a：如果A中有B，那么，B就是A的组成部分
 
 继承：
+   私有化属性不能被继承
    Student，Employee，Doctor  --->都属于人类
    存在相同代码--->代码冗余，可读性不高
    
@@ -161,6 +162,7 @@ class Student(Person):  # 此为继承的格式
         # 如果要定义自己的__init__，还需调用父类的__init__；可使用super来调用父类的方法
         # super(Student, self).__init__()  # super另一种使用方式
         super().__init__(name,age)  # super() == 父类Person ;调用父类的__init__方法
+        super(Student, self).__init__()
 
 
 

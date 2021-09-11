@@ -3,6 +3,7 @@
 #封装：
 1.私有化属性
 2.定义公有set方法和get方法
+3.私有化属性不能被继承
 
 #__属性：将属性私有化，访问范围仅仅限于类中
 好处：
@@ -50,7 +51,6 @@ class Student:
     def __str__(self):
         return '姓名：{}，年龄：{}，分数：{}'.format(self.__name, self.__age, self.__score)
 
-
 one = Student('JSY', 20)
 print(one)
 
@@ -75,7 +75,6 @@ print(__name__)  # 表示当前程序运行在哪一个模块中
 使用@property，可以代替getxxx():
 来获取属性
 '''
-
 
 class Student:
     __age = 18  # 私有化的类属性
@@ -110,8 +109,6 @@ class Student:
 
 
 s = Student('Tom', 99)
-# s.setAge(66)
-# print(s.getAge())
 
 s.assignment_age = 98  #给__age赋值
 print(s.acquire_age)     #获取__age的值

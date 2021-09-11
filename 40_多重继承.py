@@ -13,9 +13,9 @@ p.eat('大碗菜')
 
 '''
 python允许多重继承：一个子类可以有多个父类(java不可以)  #开发中很少使用
-    def 子类(父类1，父类2...)
+    class 子类(父类1，父类2...):
         pass
-多重继承的搜索顺序： 在Python2中，对于经典类(python2)和新式类(python3)有所不同
+多重继承的搜索顺序： 在Python2中，对于经典类和新式类有所不同
 经典类：   #python2中是从左至右，深度优先
 class Base:
     pass
@@ -35,6 +35,9 @@ class B(Base):
     pass
     
 注意：在python3里，无论经典类还是新式类都是广度优先
+       查看搜索顺序的方法：类名.__mro__ #直接使用查看
+                              import inspect  #导包后，使用inspect方法查看
+                              print(inspect.getmro(类名))
 '''
 #C继承了A和B，而A和B继承了Base
 #Base-->A,B-->C
