@@ -39,3 +39,10 @@ print(dir(Single))
 # print(Single._Single__instance)
 s.show()
 
+
+'''
+#使用装饰器构建单例模式
+'''
+# def Single1(cls):
+#     __instance = {}
+#     def __single

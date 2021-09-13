@@ -1,3 +1,6 @@
+import sys
+
+
 class Person:
     def __init__(self,name):
         self.name = name
@@ -67,3 +70,26 @@ c.test1()  #可以使用多个父类提供的方法
 c.test2()
 # c.test3()
 c.test()  #出现与父类同名方法时，搜索顺序为就近原则
+
+#复杂的多类继承搜索顺序
+class A1(object):
+    pass
+class B1(object):
+    pass
+class C2(A1):
+    pass
+class D2(A1):
+    pass
+class E3(C2,B1):
+    pass
+class F3(C2,B1,D2):  #在遵循继承顺序的基础上，遵循着广度优先原则
+    pass
+class G3(D2,B1):
+    pass
+
+
+print(inspect.getmro(G3))
+print(inspect.getmro(F3))
+print(inspect.getmro(E3))
+
+
