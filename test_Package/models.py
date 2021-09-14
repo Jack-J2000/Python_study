@@ -10,4 +10,4 @@ class Model:
     def show(self):
         print(self.username,self.password)
 
-import calculate模块  #可以导入非包中的模块
+# import calculate模块  #可以导入非包中的模块

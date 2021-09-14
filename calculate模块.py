@@ -22,14 +22,6 @@ def sub(*args):
         print('请至少传入两个参数')
 
 
-def multiply(*args):
-    pass
-
-
-def divide(*args):
-    pass
-
-
 class Calculate:
     def test(self):
         print('正在使用Calculate！')

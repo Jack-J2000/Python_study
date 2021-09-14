@@ -45,24 +45,25 @@ import calculate模块
    在自己的模块用__name__，叫__name__ = __main__
    在其他模块通过导入的方式调用，__name__ = 模块名
 '''
-#自定义模块 calculate包
+#自定义模块 calculate模块
 list1 = [9,8,7,6,5,4,0]
 
 #第一种方法
-# import calculate包
-#
-# #使用模块中的函数  模块名.变量   模块名.函数   模块名.类
-# sum = calculate包.add(*list1)  #拆包
-# print(sum)
-# #使用模块中的变量
-# print(calculate包.name)
-#
-# #使用模块中的类
-# cal = calculate包.Calculate()
-# print(cal)   #对象的空间
-# cal.test()
-# calculate包.Calculate.test1()  #类方法可直接调用
-# calculate包.Calculate.test()   #对象方法需创建一个对象，借助对象来调用
+import calculate模块
+
+
+#使用模块中的函数  模块名.变量   模块名.函数   模块名.类
+sum = calculate模块.add(*list1)  #拆包
+print(sum)
+#使用模块中的变量
+print(calculate模块.name)
+
+#使用模块中的类
+cal = calculate模块.Calculate()
+print(cal)   #对象的空间
+cal.test()
+calculate模块.Calculate.test1()  #类方法可直接调用
+calculate模块.Calculate.test(cal)   #对象方法需创建一个对象，借助对象来调用
 
 #第二种方法
 from calculate模块 import *   #在被调用的模块中加入__all__可限制允许调用的内容
@@ -90,16 +91,16 @@ test() #不在原模块执行__name__时，会打印原模块的名字
 当想要导入同级包下的模块时，也应该按照from *** import ** 的格式进行，不能直接import
 '''
 #导入包的模块
-# from test_Package import models
-# m = models.Model('lily',123)  #使用包中模块的内容
-# print(m)
-# m.show()
-
-
-from test_Package.models import Model   #导入包的同时，执行里面的__init__动作
-m = Model('Tom',321)
+from test_Package import models
+m = models.Model('lily',123)  #使用包中模块的内容
 print(m)
 m.show()
+
+
+# from test_Package.models import Model   #导入包的同时，执行里面的__init__动作
+# m = Model('Tom',321)
+# print(m)
+# m.show()
 
 '''
 包的__init__.py文件
@@ -129,9 +130,9 @@ B(模块):
  如何避免循环导入？(解决问题)
  1.重构代码(需很大成本,工作量)
  2.将导入的语句放到函数里面
-   每次调用模块，都会加载里面的类，函数，并执行没有放在__name__的语句，
-   所以想要不执行这些语句，就放在（ if __name__ == '__main__': ）里面
- 3.将导入语句放在模块最后
+ 3.将导入语句放在模块最后，用from 方式
+ 4.将导入语句放在模块顶部，用import方式
+ 
  
  
 '''
