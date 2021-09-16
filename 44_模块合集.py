@@ -8,11 +8,11 @@ sys模块：
 '''
 import sys
 
-
 print(sys.path)  #模块搜索路径
 print(sys.version)
 print(sys.argv)  #运行程序时的参数，argv是一个列表
-
+n = 0
+print(sys.getrefcount(n))
 '''
 time模块：
 1.时间戳  time.time()   #当前时间(秒的形式)
@@ -70,11 +70,11 @@ timedelta  时间差      timedelta(day='',week='',...)  结合now()作加减运
 import datetime
 
 print(datetime.time.hour)  #返回对象
-print(time.localtime().tm_hour)
+# print(time.localtime().tm_hour)
 
 d = datetime.date(2021,9,13)
 print(datetime.date.month)
-print(datetime.date.ctime(d))
+print(datetime.date.ctime(d))  #年月日时分秒的形式
 
 print(datetime.date.today())  #输出当前的日期
 
@@ -134,7 +134,7 @@ print(r)
 '''
 print(chr(65))  #Unicode码---> str
 print(ord('A'))   #str--->Unicode码
-print(ord('姜'))
+print(ord('中'))
 
 
 '''
@@ -148,6 +148,7 @@ import hashlib
 
 msg = '哈哈哈'
 md5 = hashlib.md5(msg.encode('utf-8'))
+print(md5)   #输出为hash 对象 md5
 print(md5.hexdigest())  #输出加密后的结果
 
 sha1 = hashlib.sha1(msg.encode('utf-8'))
@@ -164,17 +165,24 @@ list.append(sha256.hexdigest())
 
 print(list)
 
-pwd = input('输入密码：')
-sha256 = hashlib.sha256(pwd.encode('utf-8'))  #对密码使用同样的算法进行加密
-pwd = sha256.hexdigest()
-print(pwd)
-for i in list:
-    if pwd == i:
-        print('登录成功！')
+# pwd = input('输入密码：')
+# sha256 = hashlib.sha256(pwd.encode('utf-8'))  #对密码使用同样的算法进行加密
+# pwd = sha256.hexdigest()
+# print(pwd)
+# for i in list:
+#     if pwd == i:
+#         print('登录成功！')
 
 '''
-第三方模块：
+第三方模块：pillow(图片处理)  
 
-
+(在Terminal,命令行)使用pip安装和管理第三方模块：pip install pillow
 
 '''
+import requests
+
+response = requests.get('https://www.baidu.com/')
+print(response.text)
+
+response1 = requests.get('http://www.baidu.cn/')
+print(response1.text)

@@ -361,42 +361,6 @@ n=1000 (53352)
 #         print(1)
 #     else:
 #         print(0)
-'''
-我们首先提取出对话的最后一句话，把所有非字母的字符替换成空格，把所有字符 替换成小写，
-然后导出一个单词列表（由空格隔开），只要列表中的任何一个单词是 hehe，
-这 段对话就算作“止于呵呵”。
-本题只考虑由 n(n>1)个 he连接而成的单词，比如 hehehe或者 hehehehe。
-'''
-import re
-name = []
-conversation = []
-while True:
-    dialogue = input()
-    for i in range(len(dialogue)):
-        if dialogue[i]==':':
-            a = dialogue[:i]
-            b = dialogue[i+1:]
-            name.append(a)
-            conversation.append(b)
-            break
-
-    new_b = b.strip()
-    new_b = new_b.split(' ') #存放输入各单词的列表
-    flag1 = 0 #是否满足呵呵
-
-    for i in new_b:
-        i = i.lower()
-        if len(i)%2==0 and int((len(i)/2))*'he'==i:
-            flag1 = 1
-            break
-    if flag1:
-        break
-
-
-
-
-
-
 
 '''
 。A太太工作了 5天，B太太则工作了 4天，才将花园整理完毕。
@@ -428,3 +392,220 @@ C 太太因为正身怀六甲无法加入她们的行列，便出了 90 元。
 #         if average==0:
 #             print(int(c/2))
 #     n -= 1
+'''
+n 个人站成一行玩一个报数游戏。所有人从左到右编号为 1 到 n。
+游戏开始时，最左边的人报 1，他右边的 人报 2，编号为 3 的人报 3，等等。
+当编号为 n 的人（即最右边的人）报完 n 之后，轮到他左边的人（即编号为 n-1 的人）报 n+1，
+然后编号为 n-2 的人报 n+2，以此类推。当最左边的人再次报数之后，报数方向又变成从左 到右，依次类推。
+为了防止游戏太无聊，报数时有一个特例：如果应该报的数包含数字 7 或者是 7 的倍数，他应当用拍手代 替报数。
+下表是 n=4的报数情况（X表示拍手）。当编号为 3 的人第 4 次拍手的时候，他实际上数到了 35。
+给定 n，m和 k，你的任务是计算当编号为 m的人第 k 次拍手时，他实际上数到了几。 
+'''
+# while True:
+#     n, m, k = map(int, input().split())
+#     # print(n, k, m)
+#     if n == 0 and k == 0 and m == 0:
+#         break
+#
+#     list = []
+#     for i in range(n):
+#         list.append(0)
+#     circle1 = 0
+#     circle2 = 0
+#     num = 1
+#     flag = 0
+#     while True:
+#         if circle1 == circle2:
+#             for i in range(n):
+#                 list[i] = num
+#                 num += 1
+#
+#             if list[m - 1] != 0 and (list[m - 1] % 7 == 0 or '7' in str(list[m-1])):
+#                 flag += 1
+#             if flag == k:
+#                 print(list[m - 1])
+#                 break
+#             circle1 += 1
+#         else:
+#             for i in range(n - 2):
+#                 list[n - i - 2] = num
+#                 num += 1
+#
+#             if m!=1 and m!=n:
+#                 if list[m - 1] != 0 and (list[m - 1] % 7 == 0 or '7' in str(list[m-1])):
+#                     flag += 1
+#                 if flag == k:
+#                     print(list[m - 1])
+#                     break
+#             circle2 += 1
+
+'''
+Kimi号称自己已经记住了1-100000之间所有的斐波那契数。
+为了考验他，我们随便出一个数n，让他说出第n个斐波那契数。
+当然，斐波那契数会很大。
+因此，如果第n个斐波那契数不到6位，则说出该数；否则只说出最后6位(无需输出前导0)。
+'''
+# while True:
+#     n = int(input())
+#     a, b = 1, 1
+#     if n == 1:
+#         print(1)
+#     else:
+#         for i in range(n - 1):
+#             a, b = b, a + b
+#         if len(str(b)) <= 6:
+#             print(b)
+#         else:
+#             b1 = str(b)
+#             b1 = b1[-6:]
+#             # print(b1[-6:])
+#             flag = 0
+#             for i in range(6):
+#                 if b1[i] == '0':
+#                     flag += 1
+#                 if b1[i] == '0' and i != 5 and b1[i + 1] != '0' and flag == i + 1:
+#                     b1 = int(b1[i + 1:])
+#                     print(b1)
+#                     break
+#             else:
+#                 b1 = int(b1)
+#                 print(b1)
+
+# while True:
+#     if b1[-6]=='0':
+#         print(int(b1[-5:]))
+#         break
+#     elif b1[-6]=='0' and b1[-5]=='0':
+#         print(int(b1[-4:]))
+#         break
+#     elif b1[-6]=='0' and b1[-5]=='0' and b1[-4]=='0':
+#         print(int(b1[-3:]))
+#         break
+#     elif b1[-6]=='0' and b1[-5]=='0' and b1[-4]=='0' and b1[-3]=='0':
+#         print(int(b1[-2:]))
+#         break
+#     elif b1[-6]=='0' and b1[-5]=='0' and b1[-4]=='0' and b1[-3]=='0' and b1[-2]=='0':
+#         print(int(b1[-1]))
+#         break
+#     else:
+#         print(int(b1[-6:]))
+#         break
+
+# while True:
+#     n = int(input())
+#     a = 1
+#     b = 1
+#     if n==1:
+#         print(1)
+#     else:
+#         for i in range(n-1):
+#             result = a+b
+#             a = b
+#             b = result
+#
+#         if len(str(result))<=6:
+#             print(result)
+#         else:
+#             S = str(result)
+#             # print(S)
+#             S = S[-6:]
+#             # print(S)
+#             # print(type(S))
+#             while True:
+#                 if S[-6]=='0' and S[-5]!='0':
+#                     print(int(S[-5:]))
+#                     break
+#                 elif S[-6]=='0' and S[-5]=='0' and S[-4]!='0':
+#                     print(int(S[-4:]))
+#                     break
+#                 elif S[-6]=='0' and S[-5]=='0' and S[-4]=='0' and S[-3]!='0':
+#                     print(int(S[-3:]))
+#                     break
+#                 elif S[-6]=='0' and S[-5]=='0' and S[-4]=='0' and S[-3]=='0' and S[-2]!='0':
+#                     print(int(S[-2]))
+#                     break
+#                 elif S[-6]=='0' and S[-5]=='0' and S[-4]=='0' and S[-3]=='0' and S[-2]=='0':
+#                     print(int(S[-1]))
+#                     break
+#                 else:
+#                     print(int(S[-6:]))
+#                     break
+'''
+使用递归编写一个程序，求：
+S(n)=1-1/2+1/3-1/4+1/5-1/6+......
+'''
+
+# while True:
+#     n = int(input())
+#     S = 1
+#     if n == S:
+#         print('%.6f'%S)
+#     else:
+#         for i in range(n-1):
+#             if (i+2) % 2 == 0:
+#                 S = S - 1 / (i+2)
+#             elif (i+2) % 2 != 0:
+#                 S = S + 1 / (i+2)
+#         print('%.6f'%S)
+'''
+使用递归编写一个程序，逆序输出一个非负整数。例如输入1234，输出4321(不含前导0)。
+'''
+# while True:
+#     n = input()
+#     zero = 0
+#     for i in range(len(n)):
+#         if n[i] == '0':
+#             zero += 1
+#         if n[i] == '0' and (i + 1) != len(n) and n[i + 1] != '0' and zero == i + 1:
+#             n = n[i + 1:]
+#             break
+#     # print(n)
+#
+#     new_n = n[::-1]
+#     flag = 0
+#     for i in range(len(new_n)):
+#         if new_n[i] == '0':
+#             flag += 1
+#         if new_n[i] == '0' and (i + 1) != len(new_n) and new_n[i + 1] != '0' and flag == i + 1:
+#             new_n = int(new_n[i + 1:])
+#             print(new_n)
+#             break
+#     else:
+#         new_n = int(new_n)
+#         print(new_n)
+
+'''
+有一只经过训练的蜜蜂只能爬向右侧相邻的蜂房，不能反向爬行。
+请编程计算蜜蜂从蜂房a爬到蜂房b的可能路线数。
+1 2 3 5 8
+'''
+# def func(sub):
+#     if sub < 3:
+#         return 1
+#     else:
+#         return func(sub - 1) + func(sub - 2)
+#
+# while True:
+#     a, b = map(int, input().split())
+#     sub = b-a+1
+#     result = func(sub)
+#     print(result)
+
+'''
+用大小为1×2的骨牌铺满一个大小为2×n的长方形方格，
+编写一个程序，输入n，输出铺放方案总数。例如，输入n=3，即大小为2×3的方格，
+输出3。3种骨牌铺放方案如下图所示：
+'''
+#
+# def func(n):
+#     if n==1:
+#         return 1
+#     elif n==2:
+#         return 2
+#     else:
+#         return func(n-1)+func(n-2)
+#
+# while True:
+#     n = int(input())
+#     result = func(n)
+#     print(result)

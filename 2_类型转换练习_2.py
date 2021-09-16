@@ -28,3 +28,4 @@ float-->int  int(a)     小数点后数字被抹除
 '''
 a = 5
 print(bool(a))
+print('%.8f' %5)  #保留小数
