@@ -471,82 +471,44 @@ Kimi号称自己已经记住了1-100000之间所有的斐波那契数。
 #                 b1 = int(b1)
 #                 print(b1)
 
-# while True:
-#     if b1[-6]=='0':
-#         print(int(b1[-5:]))
-#         break
-#     elif b1[-6]=='0' and b1[-5]=='0':
-#         print(int(b1[-4:]))
-#         break
-#     elif b1[-6]=='0' and b1[-5]=='0' and b1[-4]=='0':
-#         print(int(b1[-3:]))
-#         break
-#     elif b1[-6]=='0' and b1[-5]=='0' and b1[-4]=='0' and b1[-3]=='0':
-#         print(int(b1[-2:]))
-#         break
-#     elif b1[-6]=='0' and b1[-5]=='0' and b1[-4]=='0' and b1[-3]=='0' and b1[-2]=='0':
-#         print(int(b1[-1]))
-#         break
-#     else:
-#         print(int(b1[-6:]))
-#         break
-
-# while True:
-#     n = int(input())
-#     a = 1
-#     b = 1
-#     if n==1:
-#         print(1)
-#     else:
-#         for i in range(n-1):
-#             result = a+b
-#             a = b
-#             b = result
-#
-#         if len(str(result))<=6:
-#             print(result)
-#         else:
-#             S = str(result)
-#             # print(S)
-#             S = S[-6:]
-#             # print(S)
-#             # print(type(S))
-#             while True:
-#                 if S[-6]=='0' and S[-5]!='0':
-#                     print(int(S[-5:]))
-#                     break
-#                 elif S[-6]=='0' and S[-5]=='0' and S[-4]!='0':
-#                     print(int(S[-4:]))
-#                     break
-#                 elif S[-6]=='0' and S[-5]=='0' and S[-4]=='0' and S[-3]!='0':
-#                     print(int(S[-3:]))
-#                     break
-#                 elif S[-6]=='0' and S[-5]=='0' and S[-4]=='0' and S[-3]=='0' and S[-2]!='0':
-#                     print(int(S[-2]))
-#                     break
-#                 elif S[-6]=='0' and S[-5]=='0' and S[-4]=='0' and S[-3]=='0' and S[-2]=='0':
-#                     print(int(S[-1]))
-#                     break
-#                 else:
-#                     print(int(S[-6:]))
-#                     break
+while True:
+    n = int(input())
+    if n == 1:
+        print(1)
+    elif n > 1:
+        init1 = 1
+        init2 = 1
+        for i in range(n - 1):
+            result = init1 + init2
+            if i != n - 2:
+                init1 = init2
+                init2 = result
+        if result < 1000000:
+            print(result)
+        else:
+            print(result % 1000000)
 '''
 使用递归编写一个程序，求：
 S(n)=1-1/2+1/3-1/4+1/5-1/6+......
 '''
+# import sys    #加入这两行代码，设置递归层数
+# sys.setrecursionlimit(10000)
+#
+# def S(n):
+#     if(n==1):
+#         s = 1
+#     elif(n>1):
+#         if(n%2==0):#偶数取负
+#             t = -1/n
+#         else:
+#             t = 1/n
+#         s = S(n-1)+t
+#     return s
+# while(True):
+#     a = int(input())
+#     n = S(a)
+#     print('%.6f'%n)
 
-# while True:
-#     n = int(input())
-#     S = 1
-#     if n == S:
-#         print('%.6f'%S)
-#     else:
-#         for i in range(n-1):
-#             if (i+2) % 2 == 0:
-#                 S = S - 1 / (i+2)
-#             elif (i+2) % 2 != 0:
-#                 S = S + 1 / (i+2)
-#         print('%.6f'%S)
 '''
 使用递归编写一个程序，逆序输出一个非负整数。例如输入1234，输出4321(不含前导0)。
 '''
