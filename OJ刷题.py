@@ -471,22 +471,22 @@ Kimi号称自己已经记住了1-100000之间所有的斐波那契数。
 #                 b1 = int(b1)
 #                 print(b1)
 
-while True:
-    n = int(input())
-    if n == 1:
-        print(1)
-    elif n > 1:
-        init1 = 1
-        init2 = 1
-        for i in range(n - 1):
-            result = init1 + init2
-            if i != n - 2:
-                init1 = init2
-                init2 = result
-        if result < 1000000:
-            print(result)
-        else:
-            print(result % 1000000)
+# while True:
+#     n = int(input())
+#     if n == 1:
+#         print(1)
+#     elif n > 1:
+#         init1 = 1
+#         init2 = 1
+#         for i in range(n - 1):
+#             result = init1 + init2
+#             if i != n - 2:
+#                 init1 = init2
+#                 init2 = result
+#         if result < 1000000:
+#             print(result)
+#         else:
+#             print(result % 1000000)
 '''
 使用递归编写一个程序，求：
 S(n)=1-1/2+1/3-1/4+1/5-1/6+......
@@ -571,3 +571,95 @@ S(n)=1-1/2+1/3-1/4+1/5-1/6+......
 #     n = int(input())
 #     result = func(n)
 #     print(result)
+'''
+一只超级青蛙一次可以跳上1级台阶，也可以跳上2级……它也能够跳上n级台阶。
+请问，该青蛙跳上一个n级的台阶总共有多少种跳法？
+
+'''
+# def func(n):
+#     if n == 1:
+#         return 1
+#     else:
+#         return 2*func(n-1)
+#
+# while True:
+#     n = int(input())
+#     print(func(n))
+'''
+使用递归编写一个程序实现汉诺塔问题，要求在输入圆盘数量之后，
+输出圆盘的移动步骤，输出格式示例如下：
+第1步：1号盘从A柱移至B柱
+第2步：2号盘从A柱移至C柱
+'''
+while True:
+    n = int(input())
+    nums = []
+    for i in range(n):
+        nums.append(i+1)
+    for i in range(2**n-1):
+        print('第{}步:{}号盘从{}柱移至{}柱')
+
+
+
+
+
+
+
+'''
+Kimi开了一家早餐店，这家店的客人都有个奇怪的癖好：他们只要来这家店吃过一次早餐，
+就会每天都过来；并且，所有人在这家店吃了两天早餐后，接下来每天都会带一位新朋友一起来品尝。
+于是，这家店的客人从最初一个人发展成浩浩荡荡成百上千人：1、1、2、3、5……
+现在，Kimi想请你帮忙统计一下，某一段时间范围那他总共卖出多少份早餐（假设每位客人只吃一份早餐）。
+'''
+# while True:
+#     a, b = map(int, input().split())
+#     if a == b:
+#         pass
+#     else:
+#         sum = 0
+#         flag = 0
+#
+#         for i in range(a, b + 1):
+#             init1 = 1
+#             init2 = 1
+#             if i > 2:
+#                 for j in range(i - 2):
+#                     flag = init2+init1
+#                     init1 = init2
+#                     init2 = flag
+#                 sum+=flag
+#             else:
+#                 sum += 1
+#     print(sum)
+
+'''
+1, 2, 3...9 这九个数字组成一个分数，其值恰好为1/3，
+要求每个数字出现且只能出现一次，如何组合？编写程序输出所有的组合。
+'''
+
+'''
+编写一个程序，使用递归算法输出一个一维字符数组中所有字符的全排列，假设字符都不一样。
+例如{'a','b','c'}的全排列为(a,b,c), (a,c,b), (b,a,c), (b,c,a), (c,a,b), (c,b,a)
+'''
+# def func(*args,f1,f2):
+#     if f1==f2:
+#         print(args[0])
+#         print()
+#     else:
+#         for i in range(f1,f2+1):
+#             t = args[f1]
+#             args[f1]=args[i]
+#             args[i]=t
+#             func(*args,f1+1,f2)
+#             t = args[i]
+#             args[i]=args[f1]
+#             args[f1]=t
+# while True:
+#     n = int(input())
+#     char = []
+#     a = 97
+#     for i in range(n):
+#         char.append(chr(a))
+#         a += 1
+#     print(char)
+#     func(*char,0,n-1)
