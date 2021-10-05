@@ -19,7 +19,7 @@ import threading
 import random
 import time
 
-lock = threading.Lock() #定义一个锁
+lock = threading.Lock()  # 定义一个锁
 list1 = [0] * 10
 
 
@@ -33,11 +33,12 @@ def task1():
 
 
 def task2():
-    lock.acquire()  #阻塞
+    lock.acquire()  # 阻塞
     for i in range(len(list1)):
-        print('--->',list1[i])
+        print('--->', list1[i])
         # time.sleep(0.5)
     lock.release()
+
 
 if __name__ == '__main__':
     t2 = threading.Thread(target=task2())
@@ -45,4 +46,4 @@ if __name__ == '__main__':
 
     t1.start()
     t2.start()
-
+print(list1)

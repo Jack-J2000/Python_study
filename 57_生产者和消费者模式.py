@@ -23,17 +23,18 @@ def produce(q):
         time.sleep(1)
         i += 1
     q.put(None)
-    #完成任务
+    # 完成任务
     q.task_done()
+
 
 def consume(q):
     while True:
         item = q.get()
         if item is None:
             break
-        print('消费者获取到：%s' %item)
+        print('消费者获取到：%s' % item)
         time.sleep(2)
-    #完成任务
+    # 完成任务
     q.task_done()
 
 
