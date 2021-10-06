@@ -1,4 +1,4 @@
-#gevent
+# gevent
 ''
 
 '''
@@ -17,21 +17,26 @@ import gevent
 import time
 from gevent import monkey
 
-monkey.patch_all()  #猴子补丁
-def a():  #任务a
+# monkey.patch_all()  # 猴子补丁：当 gevent遇到延时 时切换到其他任务。
+
+
+def a():  # 任务a
     for i in range(3):
-        print('A'+str(i))
+        print('A' + str(i))
         time.sleep(0.1)
 
-def b():  #任务b
+
+def b():  # 任务b
     for i in range(3):
-        print('B'+str(i))
+        print('B' + str(i))
         time.sleep(0.1)
 
-def c():  #任务c
+
+def c():  # 任务c
     for i in range(3):
-        print('C'+str(i))
+        print('C' + str(i))
         time.sleep(0.1)
+
 
 if __name__ == '__main__':
     g1 = gevent.spawn(a)
